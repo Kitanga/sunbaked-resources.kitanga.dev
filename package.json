@@ -1,0 +1,16 @@
+{
+  "name": "sunbaked-resources.kitanga.dev",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve -C -p 5501"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "sharp": "^0.33.4"
+  }
+}
