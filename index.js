@@ -11,12 +11,12 @@ const preprocessed_files = await readdir(preprocessed_img_folder);
 console.log(preprocessed_files);
 
 preprocessed_files.forEach(async file => {
-    readFile(join('preprocessed', file)).then(buf => {
+    await readFile(join('preprocessed', file)).then(buf => {
         const sharpFile = sharp(buf);
 
-        sharpFile
+        return sharpFile
             .avif({
                 effort: 7
-            }).toFile(join('img', file.replace(/.webp|.png/g, '.avif')));
+            }).toFile(join('img', file.replace(/.webp|.png|.jpg|.jpeg/g, '.avif')));
     });
-})
+});
