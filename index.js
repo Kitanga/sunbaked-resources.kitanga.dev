@@ -1,9 +1,15 @@
-const { readdir, readFile } = require("node:fs/promises");
+const { readdir, readFile, mkdir } = require("node:fs/promises");
 const { join } = require('node:path');
 const sharp = require('sharp');
 
 const img_folder = join(import.meta.dir, 'img');
 const preprocessed_img_folder = join(import.meta.dir, 'preprocessed');
+
+const hasIMGFolder = (await readdir('./')).some(item => item == 'img');
+
+try {
+    !hasIMGFolder && mkdir(img_folder);
+} catch(err) {}
 
 // read all the files in the current directory
 const preprocessed_files = await readdir(preprocessed_img_folder);
