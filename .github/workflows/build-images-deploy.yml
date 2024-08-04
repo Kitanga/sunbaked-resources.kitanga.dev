@@ -33,10 +33,10 @@ jobs:
         run: bun install
       - name: Create images
         run: bun index.js
-      - name: Upload folder
-        uses: actions/upload-pages-artifact@v3.0.1
-        with:
-          path: ./
+      # - name: Upload folder
+      #   uses: actions/upload-pages-artifact@v3.0.1
+      #   with:
+      #     path: ./
   # Single deploy job since we're just deploying
   deploy:
     needs: build
